@@ -1,0 +1,23 @@
+
+
+class Solution {
+    static Long[] lcmAndGcd(Long A , Long B) {
+        long a = Math.max(A,B);
+        long b = Math.min(A,B);
+        long gcd = 1;
+        while(a!=0){
+            long x = a%b;
+            if(x==0){
+                gcd = b;
+                break;
+            }
+            a = Math.max(x,b);
+            b=Math.min(x,b);
+        }
+        long lcm = (A*B)/gcd;
+        Long[] arr = new Long[2];
+        arr[0]=lcm;
+        arr[1]=gcd;
+        return arr;
+    }
+};
